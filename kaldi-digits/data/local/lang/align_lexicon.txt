@@ -1,0 +1,13 @@
+!SIL sil_S
+<UNK> spn_S
+零 l_B ing2_E
+一 ii_B i1_E
+二 er4_S
+三 s_B an1_E
+四 s_B iy4_E
+五 uu_B u3_E
+六 l_B iu4_E
+七 q_B i1_E
+八 b_B a1_E
+九 j_B iu3_E
+<eps> sil

@@ -1,0 +1,12 @@
+!SIL 1.0	sil
+<UNK> 1.0	spn
+零 1.0	l ing2
+一 1.0	ii i1
+二 1.0	er4
+三 1.0	s an1
+四 1.0	s iy4
+五 1.0	uu u3
+六 1.0	l iu4
+七 1.0	q i1
+八 1.0	b a1
+九 1.0	j iu3

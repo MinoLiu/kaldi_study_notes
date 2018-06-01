@@ -1,0 +1,4 @@
+gmm-mixup --mix-up=2000 exp/tri1/1.mdl exp/tri1/1.occs exp/tri1/1.mdl 
+WARNING (gmm-mixup[5.4.110~1405-6a2dc]:GetSplitTargets():model-common.cc:134) Could not split up to 2000 due to min-count = 20 (or no counts at all)
+LOG (gmm-mixup[5.4.110~1405-6a2dc]:SplitByCount():am-diag-gmm.cc:116) Split 56 states with target = 2000, power = 0.2, perturb_factor = 0.01 and min_count = 20, split #Gauss from 56 to 1336
+LOG (gmm-mixup[5.4.110~1405-6a2dc]:main():gmm-mixup.cc:103) Written model to exp/tri1/1.mdl

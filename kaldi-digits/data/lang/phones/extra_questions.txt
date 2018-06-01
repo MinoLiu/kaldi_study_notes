@@ -1,0 +1,9 @@
+l_B ing2_B ii_B i1_B er4_B s_B an1_B iy4_B uu_B u3_B iu4_B q_B b_B a1_B j_B iu3_B 
+l_E ing2_E ii_E i1_E er4_E s_E an1_E iy4_E uu_E u3_E iu4_E q_E b_E a1_E j_E iu3_E 
+l_I ing2_I ii_I i1_I er4_I s_I an1_I iy4_I uu_I u3_I iu4_I q_I b_I a1_I j_I iu3_I 
+l_S ing2_S ii_S i1_S er4_S s_S an1_S iy4_S uu_S u3_S iu4_S q_S b_S a1_S j_S iu3_S 
+sil spn 
+sil_B spn_B 
+sil_E spn_E 
+sil_I spn_I 
+sil_S spn_S 

@@ -1,0 +1,18 @@
+shared split sil sil_B sil_E sil_I sil_S
+shared split spn spn_B spn_E spn_I spn_S
+shared split l_B l_E l_I l_S
+shared split ing2_B ing2_E ing2_I ing2_S
+shared split ii_B ii_E ii_I ii_S
+shared split i1_B i1_E i1_I i1_S
+shared split er4_B er4_E er4_I er4_S
+shared split s_B s_E s_I s_S
+shared split an1_B an1_E an1_I an1_S
+shared split iy4_B iy4_E iy4_I iy4_S
+shared split uu_B uu_E uu_I uu_S
+shared split u3_B u3_E u3_I u3_S
+shared split iu4_B iu4_E iu4_I iu4_S
+shared split q_B q_E q_I q_S
+shared split b_B b_E b_I b_S
+shared split a1_B a1_E a1_I a1_S
+shared split j_B j_E j_I j_S
+shared split iu3_B iu3_E iu3_I iu3_S

@@ -1,0 +1,12 @@
+!SIL	1.0	sil_S
+<UNK>	1.0	spn_S
+零	1.0	l_B ing2_E
+一	1.0	ii_B i1_E
+二	1.0	er4_S
+三	1.0	s_B an1_E
+四	1.0	s_B iy4_E
+五	1.0	uu_B u3_E
+六	1.0	l_B iu4_E
+七	1.0	q_B i1_E
+八	1.0	b_B a1_E
+九	1.0	j_B iu3_E

@@ -1,0 +1,11 @@
+# set -o pipefail && mkdir -p exp/tri1/decode//score_8/ && lattice-1best --lm-scale=8 "ark:gunzip -c exp/tri1/decode//lat.1.gz exp/tri1/decode//lat.2.gz exp/tri1/decode//lat.3.gz exp/tri1/decode//lat.4.gz |" ark:- | lattice-align-words data/lang/phones/word_boundary.int exp/tri1/decode//../final.mdl ark:- ark:- | nbest-to-ctm --frame-shift=0.01 --print-silence=false ark:- - | utils/int2sym.pl -f 5 data/lang/words.txt | cat > exp/tri1/decode//score_8/train.ctm 
+# Started at Fri Jun  1 13:14:23 CST 2018
+#
+lattice-align-words data/lang/phones/word_boundary.int exp/tri1/decode//../final.mdl ark:- ark:- 
+nbest-to-ctm --frame-shift=0.01 --print-silence=false ark:- - 
+lattice-1best --lm-scale=8 'ark:gunzip -c exp/tri1/decode//lat.1.gz exp/tri1/decode//lat.2.gz exp/tri1/decode//lat.3.gz exp/tri1/decode//lat.4.gz |' ark:- 
+LOG (lattice-1best[5.4.110~1405-6a2dc]:main():lattice-1best.cc:92) Done converting 54 to best path, 0 had errors.
+LOG (lattice-align-words[5.4.110~1405-6a2dc]:main():lattice-align-words.cc:125) Successfully aligned 54 lattices; 0 had errors.
+LOG (nbest-to-ctm[5.4.110~1405-6a2dc]:main():nbest-to-ctm.cc:119) Converted 54 linear lattices to ctm format; 0 had errors.
+# Accounting: time=0 threads=1
+# Ended (code 0) at Fri Jun  1 13:14:23 CST 2018, elapsed time 0 seconds
