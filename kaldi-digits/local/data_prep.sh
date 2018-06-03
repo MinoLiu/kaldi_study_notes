@@ -33,7 +33,3 @@ for path in "train" "test"; do
 	sed -i "s/8_replace/八/g" data/$path/text
 	sed -i "s/9_replace/九/g" data/$path/text
 done
-
-
-
-

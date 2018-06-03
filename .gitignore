@@ -1,0 +1,9 @@
+*py~
+*.un~
+.gitignore~
+__pycache__
+exp
+mfcc
+*/data/test/
+*/data/train/
+*.log
