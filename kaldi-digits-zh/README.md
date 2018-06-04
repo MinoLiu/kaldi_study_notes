@@ -425,8 +425,8 @@ for x in exp/*/decode*; do [ -d $x ] && grep WER $x/wer_* | utils/best_wer.sh; d
 ```
 
 ## 結果
-
+Word error rate
 ```bash
-%WER 7.41 [ 12 / 162, 7 ins, 0 del, 5 sub ] exp/mono/decode/wer_9
-%WER 8.02 [ 13 / 162, 9 ins, 0 del, 4 sub ] exp/tri1/decode/wer_9
+%WER 0.00 [ 0 / 162, 0 ins, 0 del, 0 sub ] exp/mono/decode/wer_10
+%WER 0.00 [ 0 / 162, 0 ins, 0 del, 0 sub ] exp/tri1/decode/wer_10
 ```
