@@ -27,6 +27,8 @@
 * [編寫腳本](#編寫腳本)
 * [結果](#結果)
 
+## 流程圖
+![Imgur](https://i.imgur.com/Kx7slnI.png)
 
 
 ## 錄製語音
