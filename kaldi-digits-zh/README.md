@@ -28,7 +28,7 @@
 * [結果](#結果)
 
 ## 流程圖
-![Imgur](https://i.imgur.com/Kx7slnI.png)
+![Imgur](https://i.imgur.com/a8aG722.png)
 
 
 ## 錄製語音
