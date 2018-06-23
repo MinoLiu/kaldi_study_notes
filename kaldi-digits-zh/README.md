@@ -28,6 +28,8 @@
 * [結果](#結果)
 * [WebDemo](#WebDemo)
 
+## 流程圖
+![Imgur](https://i.imgur.com/a8aG722.png)
 
 
 ## 錄製語音
