@@ -26,7 +26,7 @@
 * [環境準備](#環境準備)
 * [編寫腳本](#編寫腳本)
 * [結果](#結果)
-* [WebDemo](#WebDemo)
+* [WebDemo](#webdemo)
 
 ## 流程圖
 ![Imgur](https://i.imgur.com/a8aG722.png)
@@ -454,11 +454,14 @@ Word error rate
 docker-compose up -d
 ```
 然後在<http://localhost:8000>進行Demo  
-注意Chrome禁止no ssl使用MediaRecord  
-建議使用Firefox
+注意Chrome禁止NoSSL使用MediaRecorder api  
+建議使用Firefox  
+
+**自己錄製的語音並且環境無雜音辨識率還算不錯**
 
 如不想安裝Docker的話  
-需要先去安裝[pykaldi](https://github.com/pykaldi/pykaldi)
+需要先去安裝[pykaldi](https://github.com/pykaldi/pykaldi)  
+Then
 ```bash
 cd pykaldi_web_demo
 python3 -m pip install -r requirements.txt
