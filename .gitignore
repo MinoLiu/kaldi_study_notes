@@ -7,3 +7,4 @@ mfcc
 */data/test/
 */data/train/
 *.log
+models

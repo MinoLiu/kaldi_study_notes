@@ -10,7 +10,7 @@ lm_order=1
 
 
 # Removing previously created data (from last run.sh execution)
-rm -rf exp mfcc data/train data/test data/local/lang data/lang data/local/tmp \
+rm -rf exp mfcc data/train data/test data/local/lang data/lang data/lang_test_tg data/local/tmp \
 	data/local/dict/lexiconp.txt data/local/corpus.txt
 
 mkdir -p data/train
@@ -125,14 +125,27 @@ steps/decode.sh --config conf/decode.config --nj $nj --cmd "$decode_cmd" \
 	exp/tri1/graph data/test exp/tri1/decode
 local/score.sh data/test data/lang exp/tri1/decode/
 
+
 echo
-echo "===== run.sh script is finished ====="
+echo "===== TRI1 ALIGNMENT ====="
 echo
 
+steps/align_si.sh --nj $nj --cmd "$train_cmd" \
+  --use-graphs true data/train data/lang exp/tri1 exp/tri1_ali
 
 echo
 echo "===== best_wer ====="
 echo
-# 找出最佳結果印出
-steps/get_ctm.sh data/train data/lang exp/tri1/decode/
-for x in exp/*/decode*; do [ -d $x ] && grep WER $x/wer_* | utils/best_wer.sh; done
+
+local/best_wer.sh
+
+echo
+echo "===== copy models to demo ====="
+echo
+
+rm -rf pykaldi_web_demo/models 
+cp -r exp pykaldi_web_demo/models
+
+echo
+echo "===== run.sh script is finished ====="
+echo

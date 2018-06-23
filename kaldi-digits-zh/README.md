@@ -26,6 +26,7 @@
 * [環境準備](#環境準備)
 * [編寫腳本](#編寫腳本)
 * [結果](#結果)
+* [WebDemo](#WebDemo)
 
 
 
@@ -257,33 +258,6 @@ export mkgraph_cmd="run.pl"
 
 path.sh：
 ```bash
-export KALDI_ROOT="/PATH/TO/YOUR/KALDI/ROOT"                                                                                                                                                                                                             [0/814][ -f $KALDI_ROOT/tools/env.sh ] && . $KALDI_ROOT/tools/env.sh
-export PATH=$PWD/utils/:$KALDI_ROOT/tools/openfst/bin:$PWD:$PATH
-[ ! -f $KALDI_ROOT/tools/config/common_path.sh ] && echo >&2 "The standard file $KALDI_ROOT/tools/config/common_path.sh is not present -> Exit!" && exit 1
-. $KALDI_ROOT/tools/config/common_path.sh
-export LC_ALL=C
-```
-
-最後就是建立目錄 conf，存放一些配置文件。包括：
-
-decode.config：
-```
-first_beam=10.0
-beam=13.0
-lattice_beam=6.0
-```
-
-mfcc.conf:
-```
---use-energy=false
---sample-frequency=44100
-```
-
-## 編寫腳本
-
-在根目錄下建立一個 run.sh 腳本，輸入以下內容：
-
-```bash
 #!/bin/bash
 
 nj=4
@@ -296,8 +270,8 @@ lm_order=1
 
 
 # Removing previously created data (from last run.sh execution)
-rm -rf exp mfcc data/train data/test data/local/lang data/lang data/local/tmp \
-        data/local/dict/lexiconp.txt data/local/corpus.txt
+rm -rf exp mfcc data/train data/test data/local/lang data/lang data/lang_test_tg data/local/tmp \
+	data/local/dict/lexiconp.txt data/local/corpus.txt
 
 mkdir -p data/train
 mkdir -p data/test
@@ -338,9 +312,9 @@ mfccdir=mfcc
 
 
 steps/make_mfcc.sh --nj $nj --cmd "$train_cmd" data/train \
-        exp/make_mfcc/train $mfccdir
+	exp/make_mfcc/train $mfccdir
 steps/make_mfcc.sh --nj $nj --cmd "$train_cmd" data/test \
-        exp/make_mfcc/test $mfccdir
+	exp/make_mfcc/test $mfccdir
 
 
 # Making cmvn.scp files
@@ -360,7 +334,7 @@ utils/prepare_lang.sh data/local/dict "<UNK>" data/local/lang data/lang
 local=data/local
 mkdir $local/tmp
 ngram-count -order $lm_order -write-vocab $local/tmp/vocab-full.txt \
-        -wbdiscount -text $local/corpus.txt -lm $local/tmp/lm.arpa
+	-wbdiscount -text $local/corpus.txt -lm $local/tmp/lm.arpa
 
 
 echo
@@ -369,7 +343,7 @@ echo
 
 lang=data/lang
 arpa2fst --disambig-symbol=#0 --read-symbol-table=$lang/words.txt \
-        $local/tmp/lm.arpa $lang/G.fst
+	$local/tmp/lm.arpa $lang/G.fst
 
 
 
@@ -386,7 +360,7 @@ echo
 
 utils/mkgraph.sh --mono data/lang exp/mono exp/mono/graph || exit 1
 steps/decode.sh --config conf/decode.config --nj $nj --cmd "$decode_cmd" \
-        exp/mono/graph data/test exp/mono/decode
+	exp/mono/graph data/test exp/mono/decode
 local/score.sh data/test data/lang exp/mono/decode/
 
 
@@ -408,25 +382,56 @@ echo
 
 utils/mkgraph.sh data/lang exp/tri1 exp/tri1/graph || exit 1
 steps/decode.sh --config conf/decode.config --nj $nj --cmd "$decode_cmd" \
-                        exp/tri1/graph data/test exp/tri1/decode
+	exp/tri1/graph data/test exp/tri1/decode
 local/score.sh data/test data/lang exp/tri1/decode/
 
+
 echo
-echo "===== run.sh script is finished ====="
+echo "===== TRI1 ALIGNMENT ====="
 echo
 
+steps/align_si.sh --nj $nj --cmd "$train_cmd" \
+  --use-graphs true data/train data/lang exp/tri1 exp/tri1_ali
 
 echo
 echo "===== best_wer ====="
 echo
-# 找出最佳結果印出
-steps/get_ctm.sh data/train data/lang exp/tri1/decode/
-for x in exp/*/decode*; do [ -d $x ] && grep WER $x/wer_* | utils/best_wer.sh; done
+
+local/best_wer.sh
+
+echo
+echo "===== copy models to demo ====="
+echo
+
+rm -rf pykaldi_web_demo/models 
+cp -r exp pykaldi_web_demo/models
+
+echo
+echo "===== run.sh script is finished ====="
+echo
 ```
 
 ## 結果
 Word error rate
 ```bash
 %WER 0.00 [ 0 / 162, 0 ins, 0 del, 0 sub ] exp/mono/decode/wer_10
-%WER 0.00 [ 0 / 162, 0 ins, 0 del, 0 sub ] exp/tri1/decode/wer_10
+%WER 0.62 [ 1 / 162, 1 ins, 0 del, 0 sub ] exp/tri1/decode/wer_10
+```
+
+## WebDemo
+跑完run.sh後
+需要安裝Docker && docker-compose
+```bash
+docker-compose up -d
+```
+然後在http://localhost:8000進行Demo
+注意Chrome禁止no ssl使用MediaRecord
+建議使用Firefox
+
+如不想安裝Docker的話
+需要先去安裝[pykaldi](https://github.com/pykaldi/pykaldi)
+```bash
+cd pykaldi_web_demo
+python3 -m pip install -r requirements.txt
+python3 runtime.py
 ```
