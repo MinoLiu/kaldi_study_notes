@@ -22,6 +22,7 @@ for path in "train" "test"; do
 			echo "$id $num" >> data/$path/utt2spk
 		done
 	done
+	sed -i "s/-_replace //g"   data/$path/text
 	sed -i "s/0_replace/零/g" data/$path/text
 	sed -i "s/1_replace/一/g" data/$path/text
 	sed -i "s/2_replace/二/g" data/$path/text
