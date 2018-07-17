@@ -4,5 +4,7 @@ services:
     kaldi_server:
         build: pykaldi_web_demo
         restart: always
+        volumes:
+         - ./exp:/usr/src/app/models
         ports:
             - "8000:8000"
