@@ -8,7 +8,7 @@ $ sudo apt install autoconf automake libtool subversion libatlas-dev libatlas-ba
 
 ### 2. 下載kaldi
 ```bash
-git clone https://github.com/kaldi-asr/kaldi
+$ git clone https://github.com/kaldi-asr/kaldi
 ```
 
 ### 3. 編譯kaldi tools
@@ -32,7 +32,7 @@ $ extras/install_irstlm.sh
 # srilm 
 # 去http://www.speech.sri.com/projects/srilm/download.html 下載
 # 並且命名成srilm.tgz 放在tools下
-./install_srilm.sh
+$ ./install_srilm.sh
 ```
 
 ### 4. 編譯kaldi source code
@@ -44,8 +44,8 @@ $ make -j clean depend; make
 
 ### 5. 編譯完成後測試
 ```bash
-cd ../egs/yesno/s5
-./run.sh
+$ cd ../egs/yesno/s5
+$ ./run.sh
 ```
 如果成功會顯示如下訊息
 ```
