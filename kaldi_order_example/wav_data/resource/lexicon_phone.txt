@@ -1,0 +1,49 @@
+SIL sil
+<SPOKEN_NOISE> sil
+內用 	n ei_4 y ong_4
+外帶	w ai_4 d ai_4
+一	y i_1
+一	y i_2
+一	y i_0
+兩	l iang_3
+三	s an_1
+四	s i_4
+五	w u_3
+六	l iu_4
+六	l u_4
+七	q i_1
+八	b a_1
+八	b a_0
+九	j iu_2
+九	j iu_3
+十	sh i_2
+十一	sh i_2 y i_1
+十二	sh i_2 $0 er_2
+十三	sh i_2 s an_1
+十四	sh i_2 s i_4
+十五	sh i_2 w u_3
+十六	sh i_2 l iu_4
+十七	sh i_2 q i_1
+十八	sh i_2 b a_1
+十九	sh i_2 j iu_3
+二十	$0 er_4 sh i_2
+個      g e_4
+個      g e_3
+個      g e_0
+塊      k uai_4
+份      f en_4
+杯      b ei_1
+包      b ao_1
+支      zh i_1
+漢堡	h an_4 b ao_3
+雞翅	j i_1 ch i_4
+雞腿	j i_1 t ui_3
+雞塊	j i_1 k uai_4
+沙拉	sh a_1 l a_1
+可樂	k e_3 l e_4
+紅茶	h ong_2 ch a_2
+薯條	sh u_3 t iao_2
+蘋果派	p ing_2 g uo_3 p ai_4
+冰淇淋	b ing_1 q i_2 l in_2
+冰淇淋	b ing_1 q i_0 l in_2
+冰淇淋	b ing_1 q i_3 l in_2
